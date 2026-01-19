@@ -5,17 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     {"saveur":"Double Chocolat","prix":"4"}
 ]
 
-let commandes = [
-    {"timeStamp":"2025-01-01 18:00:00", "crmglace":"Crème glacé saveur de Fraise."},
-    {"timeStamp":"2025-01-01 17:50:00", "crmglace":"Crème glacé saveur de Chocolat."}
-    ]
-
-let options = [
-    { "option": "Fraise" },
-    { "option": "Chocolat" },
-    { "option": "Double Chocolat" }
-]
-
 const creerSaveur = function(nom,prix,idd){
     const ligne = document.createElement("tr");
     const id = document.createElement("td");
