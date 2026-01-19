@@ -31,5 +31,9 @@ for(let i = 0; i < saveurs.length; i++){
     document.querySelector("tbody").appendChild(sav);
 }
 
+
+function supprimerSaveur(){
+    
+}
 } );
 
