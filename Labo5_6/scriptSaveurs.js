@@ -25,15 +25,31 @@ const creerSaveur = function(nom,prix,idd){
     return ligne
 }
 
-/**création du tableau de saveur à partir de saveurs */
-for(let i = 0; i < saveurs.length; i++){
-    const sav = creerSaveur(saveurs[i].saveur, saveurs[i].prix, i+1);
-    document.querySelector("tbody").appendChild(sav);
+function chargerTableau(){
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
+
+    /**création du tableau de saveur à partir de saveurs */
+    for(let i = 0; i < saveurs.length; i++){
+        const sav = creerSaveur(saveurs[i].saveur, saveurs[i].prix, i+1);
+        tbody.appendChild(sav);
+    }
 }
 
-
-function supprimerSaveur(){
-    
+function supprimerSaveur(sav){
+    if (sav.target.matches("button")){
+        let ligne = sav.target.closest("tr");
+        let identif = ligne.sectionRowIndex;
+        saveurs.splice(identif,1);
+        ligne.remove();
+        chargerTableau();
+    }
 }
+
+let tbody = document.querySelector("tbody");
+tbody.addEventListener("click",supprimerSaveur);
+chargerTableau();
+
+
 } );
 
