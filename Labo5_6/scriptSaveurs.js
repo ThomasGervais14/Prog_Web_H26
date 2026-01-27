@@ -41,13 +41,30 @@ function supprimerSaveur(sav){
         let ligne = sav.target.closest("tr");
         let identif = ligne.sectionRowIndex;
         saveurs.splice(identif,1);
-        ligne.remove();
         chargerTableau();
     }
 }
 
+
+
+function ajouterSaveur(){
+    const nomSaveur = document.getElementById("nom");
+    const prixSaveur = document.getElementById("prix");
+
+    saveurs.push({
+        "saveur": nomSaveur.value,
+         "prix": prixSaveur.value});
+    chargerTableau();
+    formSaveurs.reset();
+}
+
 let tbody = document.querySelector("tbody");
 tbody.addEventListener("click",supprimerSaveur);
+
+const formSaveurs = document.getElementById("frmAjoutSaveur");
+const boutonAjout = formSaveurs.querySelector("button");
+boutonAjout.addEventListener("click", ajouterSaveur);
+
 chargerTableau();
 
 
