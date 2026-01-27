@@ -47,7 +47,8 @@ function supprimerSaveur(sav){
 
 
 
-function ajouterSaveur(){
+function ajouterSaveur(event){
+    event.preventDefault();
     const nomSaveur = document.getElementById("nom");
     const prixSaveur = document.getElementById("prix");
 
